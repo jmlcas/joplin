@@ -1,0 +1,34 @@
+version: '3.3'
+
+services:
+
+  db:
+    image: postgres:13.1
+    container_name: joplin-db
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+    environment:
+      - POSTGRES_DB=joplin
+      - POSTGRES_USER=joplin
+      - POSTGRES_PASSWORD=joplin
+    volumes:
+      - ./data:/var/lib/postgresql/data
+    
+  joplin:
+    image: joplin/server:latest
+    container_name: joplin
+    depends_on:
+      - db
+    ports:
+      - "8200:22300"
+    restart: unless-stopped
+    environment:
+      - APP_BASE_URL=http://locahost:8200    # Modificar con los datos correctos
+      - APP_PORT=22300
+      - DB_CLIENT=pg
+      - POSTGRES_HOST=db
+      - POSTGRES_DATABASE=joplin
+      - POSTGRES_USER=joplin
+      - POSTGRES_PASSWORD=joplin
+      - POSTGRES_PORT=5432
