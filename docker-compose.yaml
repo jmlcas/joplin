@@ -9,6 +9,7 @@ services:
         ports:
             - "8200:22300"
         restart: unless-stopped
+        env_file: .env        
         environment:
 #            - APP_PORT=22300
 #            - APP_BASE_URL=${APP_BASE_URL}
