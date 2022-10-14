@@ -11,8 +11,8 @@ services:
         restart: unless-stopped
         env_file: .env        
         environment:
-#            - APP_PORT=22300
-#            - APP_BASE_URL=${APP_BASE_URL}
+            - APP_PORT=22300
+            - APP_BASE_URL=${APP_BASE_URL}  #  Poner IP ó URL
             - DB_CLIENT=pg
             - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
             - POSTGRES_DATABASE=${POSTGRES_DATABASE}
