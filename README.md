@@ -1,7 +1,6 @@
-# joplin
-Joplin - Sincronizar archivos - Docker compose
+# Joplin
 
-Ver en "localhost:8200"
+Ver en "http://localhost:8200"
 
 Login:
 
